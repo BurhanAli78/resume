@@ -1,0 +1,130 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: black;
+    padding: 10px 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #1e90ff;
+}
+
+/* Home Section */
+#home {
+    height: 100vh;
+    background: linear-gradient(to right, #1e90ff, #0073e6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.welcome-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.welcome-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.welcome-content .cta-button {
+    text-decoration: none;
+    color: white;
+    background: #e64f4f;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.welcome-content .cta-button:hover {
+    background: #cc5200;
+}
+
+/* Section Styling */
+section {
+    padding: 50px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+section p, ul {
+    font-size: 1.1em;
+}
+
+.skills-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.skill-card, .project-card {
+    padding: 20px;
+    border: 1px solid #888080;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.skill-card:hover, .project-card:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: black;
+    color: rgb(194, 181, 181);
+}
+
+footer .social-links a {
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+footer .social-links a:hover {
+    color: #1e90ff;
+}
+
