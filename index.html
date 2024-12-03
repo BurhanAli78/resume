@@ -1,11 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Burhan's Professional Portfolio">
+    <meta name="keywords" content="Portfolio, Android Developer, Burhan, Projects, Skills, Contact">
+    <meta name="author" content="Burhan">
     <title>Burhan's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background: #f4f4f9;
+            color: #333;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(to right, #1a1a2e, #16213e);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            padding: 10px 15px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background: #0f3460;
+            border-radius: 5px;
+        }
+
+        /* Home Section */
+        #home {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #1a1a2e, #16213e);
+            color: #fff;
+            text-align: center;
+        }
+
+        .welcome-content h1 {
+            font-size: 3rem;
+        }
+
+        .welcome-content p span {
+            color: #fcbf49;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #fcbf49;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #f77f00;
+            color: #fff;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 50px 10%;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #16213e;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: #fcbf49;
+            margin: 10px auto 0;
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .skill-card {
+            background: #fff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Contact Section */
+        ul {
+            list-style: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        ul a {
+            color: #1a1a2e;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        ul a:hover {
+            color: #f77f00;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1a1a2e;
+            color: #fff;
+            margin-top: 50px;
+        }
+
+        footer .social-links {
+            margin-top: 10px;
+        }
+
+        footer a {
+            color: #fcbf49;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #f77f00;
+        }
+    </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
@@ -90,7 +299,6 @@
             <a href="https://leetcode.com/u/Burhanuddin786/" target="_blank">Leetcode</a>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
+
 </html>
