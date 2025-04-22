@@ -1,304 +1,827 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Burhan's Professional Portfolio">
-    <meta name="keywords" content="Portfolio, Android Developer, Burhan, Projects, Skills, Contact">
-    <meta name="author" content="Burhan">
-    <title>Burhan's Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>Burhan - Android Developer</title>
     <style>
-        /* General Reset */
+        :root {
+            --primary: #1a237e; /* Dark blue */
+            --primary-dark: #0d1642;
+            --primary-light: #534bae;
+            --secondary: #00b0ff; /* Accent blue */
+            --secondary-dark: #0081cb;
+            --accent: #69f0ae; /* Green accent for highlights */
+            --text-dark: #212121;
+            --text-light: #ffffff;
+            --text-muted: #b0bec5;
+            --background: #f5f7fa;
+            --card-bg: #ffffff;
+            --dark-bg: #121212;
+            --dark-card: #1e1e1e;
+            --border: #e0e0e0;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            --gradient-accent: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
+            background-color: var(--background);
+            color: var(--text-dark);
             line-height: 1.6;
-            background: #f4f4f9;
-            color: #333;
         }
-
-        /* Header Section */
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
         header {
-            background: linear-gradient(to right, #1a1a2e, #16213e);
-            padding: 20px 0;
+            background: var(--gradient);
+            color: var(--text-light);
+            padding: 100px 0 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-text {
+            max-width: 600px;
+        }
+        
+        .header-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .header-text .tagline {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            margin-top: 10px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .profile-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .header-pattern {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: var(--background);
+            clip-path: polygon(0 100%, 100% 100%, 100% 0);
+        }
+        
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(105, 240, 174, 0.1) 0%, transparent 30%),
+                        radial-gradient(circle at 70% 80%, rgba(0, 176, 255, 0.1) 0%, transparent 30%);
+            z-index: 1;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--primary-dark);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-
-
-        nav ul {
-            list-style: none;
+        
+        .nav-container {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: 600;
-            padding: 10px 15px;
-            transition: all 0.3s;
-        }
-
-        nav a:hover {
-            background: #0f3460;
-            border-radius: 5px;
-        }
-
-        /* Home Section */
-        #home {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            background: linear-gradient(to right, #1a1a2e, #16213e);
-            color: #fff;
-            text-align: center;
+            padding: 15px 0;
         }
-
-        .welcome-content h1 {
-            font-size: 3rem;
-        }
-
-        .welcome-content p span {
-            color: #fcbf49;
-            font-weight: 600;
-        }
-
-        .cta-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #fcbf49;
-            color: #1a1a2e;
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: all 0.3s;
+            display: flex;
+            align-items: center;
         }
-
-        .cta-button:hover {
-            background: #f77f00;
-            color: #fff;
+        
+        .logo span {
+            color: var(--accent);
         }
-
-        /* Section Styling */
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Section Styles */
         section {
-            padding: 50px 10%;
+            padding: 80px 0;
         }
-
-        h2 {
+        
+        .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #16213e;
+            margin-bottom: 60px;
             position: relative;
         }
-
-        h2::after {
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
             content: '';
             display: block;
-            width: 100px;
-            height: 3px;
-            background: #fcbf49;
-            margin: 10px auto 0;
+            width: 70px;
+            height: 4px;
+            background-color: var(--secondary);
+            margin: 15px auto 0;
         }
-
-        .animate-on-scroll {
-            animation: fadeInUp 1.5s ease-in-out;
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
         }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        
+        .about-text {
+            flex: 1;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary);
         }
-
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .about-text strong {
+            color: var(--primary);
+        }
+        
         /* Skills Section */
-        .skills-grid {
+        #skills {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+        }
+        
+        #skills .section-title h2 {
+            color: var(--text-light);
+        }
+        
+        #skills .section-title h2::after {
+            background-color: var(--accent);
+        }
+        
+        .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            justify-items: center;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
-
-        .skill-card {
-            background: #fff;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            border-radius: 8px;
-            transition: transform 0.3s;
+        
+        .skill-category {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 3px solid var(--secondary);
         }
-
-        .skill-card:hover {
-            transform: scale(1.05);
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-bottom-color: var(--accent);
         }
-
+        
+        .skill-category h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+        
+        .skill-list li::before {
+            content: '•';
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
         /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
         }
-
+        
         .project-card {
-            background: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--primary);
         }
-
+        
         .project-card:hover {
-            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
-
-        /* Contact Section */
-        ul {
+        
+        .project-image {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+            border-bottom: 3px solid var(--secondary);
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .project-content p {
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        
+        .project-features {
             list-style: none;
-            margin-top: 20px;
+            margin-bottom: 25px;
+            background-color: rgba(26, 35, 126, 0.05);
+            padding: 15px 20px;
+            border-radius: 8px;
+        }
+        
+        .project-features li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .project-features li::before {
+            content: '✓';
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tech-tag {
+            background-color: rgba(26, 35, 126, 0.1);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-tag:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background-color: var(--primary-light);
+            color: var(--text-light);
+        }
+        
+        #contact .section-title h2 {
+            color: var(--text-light);
+        }
+        
+        #contact .section-title h2::after {
+            background-color: var(--accent);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 3px solid var(--secondary);
         }
-
-        ul li {
-            margin: 10px 0;
+        
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            border-bottom-color: var(--accent);
         }
-
-        ul a {
-            color: #1a1a2e;
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: var(--text-light);
+        }
+        
+        .contact-card a {
+            color: var(--text-light);
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+            background-color: rgba(0, 0, 0, 0.1);
         }
-
-        ul a:hover {
-            color: #f77f00;
+        
+        .contact-card a:hover {
+            color: var(--accent);
+            background-color: rgba(0, 0, 0, 0.2);
         }
-
+        
         /* Footer */
         footer {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            padding: 50px 0 30px;
+            position: relative;
+        }
+        
+        .footer-wave {
+            position: absolute;
+            top: -70px;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: var(--primary-dark);
+            clip-path: polygon(0 100%, 100% 100%, 50% 0);
+        }
+        
+        .footer-content {
             text-align: center;
-            padding: 20px;
-            background: #1a1a2e;
-            color: #fff;
-            margin-top: 50px;
         }
-
-        footer .social-links {
-            margin-top: 10px;
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-light);
         }
-
-        footer a {
-            color: #fcbf49;
-            margin: 0 10px;
+        
+        .footer-logo span {
+            color: var(--accent);
+        }
+        
+        .footer-content p {
+            margin-bottom: 25px;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .social-link {
+            color: var(--text-light);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .social-link:hover {
+            color: var(--accent);
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-nav {
+            margin: 25px 0;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-nav a {
+            color: var(--text-muted);
+            margin: 0 15px;
             text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
         }
-
-        footer a:hover {
-            color: #f77f00;
+        
+        .footer-nav a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .header-text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .profile-image {
+                width: 180px;
+                height: 180px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-text {
+                margin-bottom: 40px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
+            }
+            
+            .nav-links li {
+                margin-left: 0;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .skills-container,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .footer-nav a {
+                display: block;
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
-
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Burhan<span>Dev</span></a>
+            <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
+        </div>
+    </nav>
+
+    <header>
+        <div class="animated-bg"></div>
+        <div class="container header-content">
+            <div class="header-text">
+                <h1>Burhan</h1>
+                <p>Passionate Android Developer creating meaningful mobile solutions</p>
+                <div class="tagline">Turning ideas into exceptional Android applications</div>
+            </div>
+            <img src="https://res.cloudinary.com/dognebyrr/image/upload/v1744236722/burhanimg_yqeaxj.jpg" alt="Burhan's Profile" class="profile-image">
+        </div>
+        <div class="header-pattern"></div>
     </header>
 
-    <!-- Home Section -->
-    <section id="home">
-        <div class="welcome-content">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Hi, I'm <span>Burhan</span> - An Aspiring Android Developer</p>
-            <a href="#about" class="cta-button">Learn More</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="animate-on-scroll">
-        <h2>About Me</h2>
-        <p>I am a passionate developer working on Android apps and enterprise solutions. I focus on creating innovative and user-friendly digital experiences.</p>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="animate-on-scroll">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Android Development</h3>
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
             </div>
-            <div class="skill-card">
-                <h3>Kotlin & Java</h3>
-            </div>
-            <div class="skill-card">
-                <h3>UI/UX Design</h3>
-            </div>
-            <div class="skill-card">
-                <h3>DSA & Problem Solving</h3>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm <strong>Burhan</strong>, a passionate Android developer with a strong belief in building apps that are both <strong>useful and meaningful</strong>. From learning Java and Kotlin to creating real projects, my goal is to solve real-world problems through mobile applications.</p>
+                    <p>I love exploring modern Android tools like <strong>Jetpack Compose</strong>, integrating powerful backends like <strong>MongoDB</strong>, <strong>Firebase</strong>, and <strong>Cloudinary</strong>, and delivering smooth user experiences.</p>
+                    <p>With every project, I aim to combine elegant design with robust functionality, ensuring that my applications are not just visually appealing but also highly performant and reliable.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="animate-on-scroll">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3>Saifee Tailor App</h3>
-                <p>A digital platform for tailoring businesses.</p>
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
             </div>
-            <div class="project-card">
-                <h3>100 Days DSA Challenge</h3>
-                <p>A series tackling LeetCode problems daily.</p>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul class="skill-list">
+                        <li>Kotlin</li>
+                        <li>Java</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>UI Design</h3>
+                    <ul class="skill-list">
+                        <li>XML</li>
+                        <li>PixelLab</li>
+                        <li>Jetpack Compose</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <ul class="skill-list">
+                        <li>Firebase</li>
+                        <li>MongoDB</li>
+                        <li>Cloudinary</li>
+                        <li>RESTful APIs</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Architecture</h3>
+                    <ul class="skill-list">
+                        <li>MVVM</li>
+                        <li>LiveData</li>
+                        <li>Retrofit</li>
+                        <li>Coroutines</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <ul class="skill-list">
+                        <li>Android Studio</li>
+                        <li>Git</li>
+                        <li>Figma</li>
+                        <li>Gradle</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Other</h3>
+                    <ul class="skill-list">
+                        <li>REST APIs</li>
+                        <li>RecyclerView</li>
+                        <li>Lazy Loading</li>
+                        <li>Customization Logic</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="animate-on-scroll">
-        <h2>Contact Me</h2>
-        <p>Want to collaborate? Reach out!</p>
-        <ul>
-            <li>Email: <a href="mailto:burhanuddinali15@gmail.com">burhanuddinali15@gmail.com</a></li>
-            <li>GitHub Profile: <a href="https://github.com/BurhanAli78">Github</a></li>
-            <li>Leetcode Profile: <a href="https://leetcode.com/u/Burhanuddin786/" target="_blank">Leetcode</a></li>
-            <li>LinkedIn Profile: <a href="https://www.linkedin.com/in/burhanuddin-electricwala-467bb7257/">LinkedIn</a></li>
-        </ul>
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="/api/placeholder/400/300" alt="Saifee Tailor App" class="project-image">
+                    <div class="project-content">
+                        <h3>Saifee Tailor App</h3>
+                        <p>A custom-tailoring business app built for managing and showcasing clothing products.</p>
+                        <ul class="project-features">
+                            <li>Multiple categories like suits, shirts, pants, etc.</li>
+                            <li>Admin panel to upload new items and assign categories</li>
+                            <li>User-friendly interface for exploring clothes</li>
+                            <li>Phone call integration for direct customer contact</li>
+                            <li>Customization feature: users can upload their own logos or designs</li>
+                            <li>Banner display for promotions and discounts</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">XML</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Cloudinary</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="/api/placeholder/400/300" alt="LabGuard Pro" class="project-image">
+                    <div class="project-content">
+                        <h3>LabGuard Pro</h3>
+                        <p>A smart classroom monitoring system for teachers to monitor students' lab activities.</p>
+                        <ul class="project-features">
+                            <li>Real-time student activity tracking</li>
+                            <li>Clean teacher dashboard UI</li>
+                            <li>Firebase for live data handling</li>
+                            <li>Notifications for suspicious activities</li>
+                            <li>Activity reports and analytics</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">XML</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">MVVM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Footer -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email</h3><center>
+                    <a href="burhanuddinali15@gmail.com">burhanuddinali15@gmail.com</a><center/>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🐙</div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/BurhanAli78" target="_blank">github.com/BurhanAli78</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🔗</div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/burhanuddin-electricwala-467bb7257/" target="_blank">Burhanuddin Electricwala</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">▶️</div>
+                    <h3>YouTube</h3>
+                    <a href="https://youtube.com/@lets_code_easily" target="_blank">@lets_code_easily</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2024 Burhan. All rights reserved.</p>
-        <div class="social-links">
-            <a href="https://github.com/BurhanAli78" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/burhanuddin-electricwala-467bb7257/" target="_blank">LinkedIn</a>
-            <a href="https://leetcode.com/u/Burhanuddin786/" target="_blank">Leetcode</a>
+        <div class="footer-wave"></div>
+        <div class="container footer-content">
+            <div class="footer-logo">Burhan<span>Dev</span></div>
+            <p>Passionate Android Developer focused on creating innovative mobile solutions</p>
+            <div class="social-links">
+                <a href="https://github.com/BurhanAli78" class="social-link" target="_blank">🐙</a>
+                <a href="https://www.linkedin.com/in/burhanuddin-electricwala-467bb7257/" class="social-link" target="_blank">🔗</a>
+                <a href="https://youtube.com/@lets_code_easily" class="social-link" target="_blank">▶️</a>
+            </div>
+            <div class="footer-nav">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="copyright">
+                © 2025 Burhan - Android Developer. All rights reserved.
+            </div>
         </div>
     </footer>
 </body>
-
 </html>
